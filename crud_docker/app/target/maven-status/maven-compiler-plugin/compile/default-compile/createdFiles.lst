@@ -1,0 +1,6 @@
+com\bport\so2\model\Employee.class
+com\bport\so2\controller\EmployeeController.class
+com\bport\so2\repository\EmployeeRepository.class
+com\bport\so2\So2Application.class
+com\bport\so2\ServletInitializer.class
+com\bport\so2\controller\PathController.class

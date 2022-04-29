@@ -1,0 +1,30 @@
+version: '3.5'
+services:
+  app:
+    container_name: app
+    image: crud_docker
+    ports:
+      - "8080:8808"
+    build:
+      context: .
+      dockerfile: ./crud_docker/Dockerfile
+    depends_on:
+      - database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://172.19.0.2:3306/crud_db
+      - SPRING_DATASOURCE_USERNAME=myself
+      - SPRING_DATASOURCE_PASSWORD=123456
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+  database:
+    container_name: database
+    image: crud_mysql_docker
+    ports:
+      - "3306:3036"
+    environment:
+      MYSQL_ROOT_PASSWORD: qwerty
+      MYSQL_DATABASE: crud_db
+      MYSQL_USER: myself
+      MYSQL_PASSWORD: 123456
+    build:
+      context: .
+      dockerfile: ./crud_mysql_docker/Dockerfile
