@@ -4,7 +4,7 @@ services:
     container_name: app
     image: crud_docker
     ports:
-      - "8080:8808"
+      - "8080:8080"
     build:
       context: .
       dockerfile: ./crud_docker/Dockerfile
